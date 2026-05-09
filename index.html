@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Happy Mother's Day</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background:
+    radial-gradient(circle at top, #ffb6c1 0%, #ff8fab 35%, #d96c92 100%);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:25px;
+    position:relative;
+}
+
+.hero h1{
+    font-size:clamp(3rem, 8vw, 6rem);
+    font-weight:700;
+    letter-spacing:2px;
+    margin-bottom:25px;
+
+    animation: fadeIn 2s ease;
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.7),
+        0 0 30px rgba(255,255,255,0.3);
+}
+
+.hero p{
+    font-size:1.3rem;
+    max-width:650px;
+    line-height:1.7;
+    opacity:0.95;
+
+    animation: fadeIn 3s ease;
+}
+
+.scroll{
+    position:absolute;
+    bottom:40px;
+    font-size:1rem;
+    opacity:0.8;
+    animation:bounce 2s infinite;
+    letter-spacing:1px;
+}
+
+/* SECOND SECTION */
+
+.section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.card{
+    width:100%;
+    max-width:750px;
+
+    background:rgba(255,255,255,0.12);
+
+    border:1px solid rgba(255,255,255,0.25);
+
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+
+    border-radius:30px;
+
+    padding:55px 40px;
+
+    text-align:center;
+
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.2),
+        0 0 20px rgba(255,255,255,0.08);
+
+    animation: cardFade 1.5s ease;
+}
+
+.card h2{
+    font-size:3rem;
+    margin-bottom:25px;
+    font-weight:700;
+}
+
+.card p{
+    font-size:1.4rem;
+    line-height:2;
+    opacity:0.95;
+}
+
+/* HEARTS */
+
+.heart{
+    position:fixed;
+    bottom:-20px;
+    color:white;
+    pointer-events:none;
+    opacity:0.7;
+    animation: float linear forwards;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes cardFade{
+    from{
+        opacity:0;
+        transform:scale(0.9);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(10px);
+    }
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    15%{
+        opacity:0.8;
+    }
+
+    to{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .card{
+        padding:40px 25px;
+    }
+
+    .card h2{
+        font-size:2.2rem;
+    }
+
+    .card p{
+        font-size:1.2rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+
+    <h1>Happy Mother’s Day ❤️</h1>
+
+    <p>
+        Thank you for being the best mother ever
+    </p>
+
+    <div class="scroll">
+        ↓ Scroll Down ↓
+    </div>
+
+</div>
+
+<div class="section">
+
+    <div class="card">
+
+        <h2>Your Last Gift 👀</h2>
+
+        <p>
+            Look...
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (Math.random() * 25 + 12) + "px";
+
+    heart.style.animationDuration =
+        (Math.random() * 4 + 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+
+setInterval(createHeart, 250);
+
+</script>
+
+</body>
+</html>
